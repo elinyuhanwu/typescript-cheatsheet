@@ -27,9 +27,41 @@ var sing = function () {
 var error = function () {
     throw Error('oops');
 };
+// type doesn't create a new name
+// type RobotArmy = {
+//   count: number,
+//   type: string,
+//   magic: string
+// }
 var fightRobotArmy = function (robots) {
     console.log('FIGHT');
 };
 var fightRobotArmy2 = function (robots) {
     console.log('FIGHT');
 };
+;
+var dog = {};
+dog.count;
+// Function
+var fightRobotArmy3 = function (robots) {
+    console.log('FIGHT');
+};
+var fightRobotArmy4 = function (robots) {
+    console.log('FIGHT');
+    return 5;
+};
+// Class
+var Animal = /** @class */ (function () {
+    function Animal(sound) {
+        this.sing = 'alalala'; // private in contrary
+        this.sing = sound;
+    }
+    Animal.prototype.greet = function () {
+        return "Hello" + this.sing;
+    };
+    return Animal;
+}());
+var lion = new Animal('RAWWWR');
+lion.greet();
+// Union Type
+var confused = 'hello';

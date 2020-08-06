@@ -32,11 +32,53 @@ let error = (): never => {
 interface RobotArmy {
   count: number,
   type: string,
-  magic: string
+  magic?: string //"?" means magic is optional
 }
+// type doesn't create a new name
+// type RobotArmy = {
+//   count: number,
+//   type: string,
+//   magic: string
+// }
 let fightRobotArmy = (robots: RobotArmy): void => {
   console.log('FIGHT');
 }
 let fightRobotArmy2 = (robots: { count: number, type: string, magic: string }): void => {
   console.log('FIGHT');
 }
+
+// Type assertion
+interface CatArmy {
+  count: number,
+  type: string,
+  magic: string
+};
+
+let dog = {} as CatArmy;
+dog.count
+
+// Function
+let fightRobotArmy3 = (robots: RobotArmy): void => {
+  console.log('FIGHT');
+}
+let fightRobotArmy4 = (robots: { count: number, type: string, magic: string }): number => {
+  console.log('FIGHT');
+  return 5;
+}
+
+// Class
+class Animal {
+  public sing: string = 'alalala' // private in contrary
+  constructor(sound: string) {
+    this.sing = sound;
+  }
+  greet() {
+    return `Hello${this.sing}`
+  }
+}
+let lion = new Animal('RAWWWR')
+lion.greet();
+
+// Union Type
+let confused: string | number = 'hello';
+
